@@ -11,15 +11,18 @@ import org.springframework.web.client.RestTemplate;
 public class UserInfoConfiguration {
 
     private final ObjectMapper objectMapper;
+    private final UserInfoResultErrorHandler errorHandler;
 
-    public UserInfoConfiguration(ObjectMapper objectMapper) {
+    public UserInfoConfiguration(ObjectMapper objectMapper, UserInfoResultErrorHandler errorHandler) {
         this.objectMapper = objectMapper;
+        this.errorHandler = errorHandler;
     }
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder()
                 .messageConverters(new MappingJackson2HttpMessageConverter(objectMapper))
+                .errorHandler(errorHandler)
                 .build();
     }
 }
