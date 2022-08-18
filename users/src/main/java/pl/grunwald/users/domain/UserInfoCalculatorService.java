@@ -14,7 +14,7 @@ public class UserInfoCalculatorService {
     private final static BigDecimal _2 = new BigDecimal("2");
 
 
-    BigDecimal calculate(UserInfoResult userInfo) {
+    public BigDecimal calculate(UserInfoResult userInfo) {
         if (userInfo.getFollowers() == null || userInfo.getFollowers().equals(0)) {
             log.info("For calculation followers amount cannot be empty or 0.");
             return null;

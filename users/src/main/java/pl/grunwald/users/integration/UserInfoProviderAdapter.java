@@ -47,16 +47,16 @@ public class UserInfoProviderAdapter implements UserInfoProviderPort {
     }
 
     private UserInfoResult mapToUserInfoDto(PublicUser user) {
-        return new UserInfoResult(
-                user.getId(),
-                user.getLogin(),
-                user.getName(),
-                user.getType(),
-                user.getAvatarUrl(),
-                user.getFollowers(),
-                user.getPublicRepos(),
-                toLocalDateTime(user.getCreatedAt())
-        );
+        return UserInfoResult.builder()
+                .id(user.getId())
+                .login(user.getLogin())
+                .name(user.getName())
+                .type(user.getType())
+                .avatarUrl(user.getAvatarUrl())
+                .followers(user.getFollowers())
+                .publicRepos(user.getPublicRepos())
+                .createdAt(toLocalDateTime(user.getCreatedAt()))
+                .build();
     }
 
     private static LocalDateTime toLocalDateTime(Date date) {
