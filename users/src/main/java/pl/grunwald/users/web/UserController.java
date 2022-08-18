@@ -6,23 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.grunwald.users.UserInfoProviderPort;
-import pl.grunwald.users.dto.UserInfoResult;
+import pl.grunwald.users.GetUserHandler;
+import pl.grunwald.users.dto.GetUserHandlerResult;
 
 @RequestMapping("/users")
 @RestController
 public class UserController {
 
-    private final UserInfoProviderPort providerPort;
+    private final GetUserHandler getUserHandler;
 
-    public UserController(UserInfoProviderPort providerPort) {
-        this.providerPort = providerPort;
+    public UserController(GetUserHandler getUserHandler) {
+        this.getUserHandler = getUserHandler;
     }
 
     @GetMapping("/{login}")
-    public ResponseEntity<UserInfoResult> getByLogin(@PathVariable String login) {
+    public ResponseEntity<GetUserHandlerResult> getByLogin(@PathVariable String login) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(providerPort.getUserInfo(login));
+                .body(getUserHandler.handle(login));
     }
 }
