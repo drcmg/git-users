@@ -1,4 +1,4 @@
-package pl.grunwald.users;
+package pl.grunwald.users.domain;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

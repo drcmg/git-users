@@ -13,7 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import pl.grunwald.users.UserInfoProviderPort;
+import pl.grunwald.users.domain.UserInfoProviderPort;
 import pl.grunwald.users.dto.UserInfoResult;
 
 @Service

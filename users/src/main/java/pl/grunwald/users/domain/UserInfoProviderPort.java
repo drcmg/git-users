@@ -1,6 +1,5 @@
-package pl.grunwald.users;
+package pl.grunwald.users.domain;
 
-import io.swagger.client.model.PublicUser;
 import pl.grunwald.users.dto.UserInfoResult;
 
 public interface UserInfoProviderPort {
